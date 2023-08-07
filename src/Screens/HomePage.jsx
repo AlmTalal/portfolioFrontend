@@ -1,5 +1,5 @@
 import Grid from "@mui/material/Unstable_Grid2";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import { Box, Typography } from "@mui/material";
 import { ColorModeContext, tokens } from "../theme";
 import { useTheme } from "@emotion/react";
@@ -22,6 +22,10 @@ export default function HomePage() {
 
   const handleAiClick = () => {
     setShowAi(true);
+  };
+
+  const hideChatBox = () => {
+    setShowAi(false);
   };
 
   return (
@@ -47,27 +51,28 @@ export default function HomePage() {
          * The Dark-Light Mode btn
          */}
         <Grid xs={6} md={4}>
-          <Box
-            backgroundColor={colors.red[400]}
-            height={"200px"}
-            margin={"3px"}
-            onClick={colorMode.toggleColorMode}
-            display={"flex"}
-            justifyContent={"center"}
-            alignItems={"center"}
-            borderRadius={"10px"}
-            sx={{ cursor: "pointer" }}
+          <AppBox
+            style={{ cursor: "pointer", alignItems: "center" }}
+            handleClick={colorMode.toggleColorMode}
           >
             {theme.pallete.mode === "dark" ? (
               <LightModeIcon
-                style={{ color: "#FFF", width: "80%", height: "80%" }}
+                style={{
+                  color: colors.secondary[400],
+                  width: "80%",
+                  height: "80%",
+                }}
               />
             ) : (
               <DarkModeIcon
-                style={{ color: "#FFF", width: "80%", height: "80%" }}
+                style={{
+                  color: colors.secondary[400],
+                  width: "80%",
+                  height: "80%",
+                }}
               />
             )}
-          </Box>
+          </AppBox>
         </Grid>
         {/**
          * The AI Button Box
@@ -86,28 +91,43 @@ export default function HomePage() {
           </AppBox>
         </Grid>
         {/**
-         * The AI Button Box
+         * Links to profiles
          */}
         <Grid xs={6} md={4}>
           <LinkBox link={"https://github.com/AlmTalal"}>
             <GitHubIcon
-              style={{ color: "#FFF", width: "80%", height: "80%" }}
+              style={{
+                color: colors.secondary[400],
+                width: "80%",
+                height: "80%",
+              }}
             />
           </LinkBox>
         </Grid>
         <Grid xs={6} md={4}>
           <LinkBox link={"https://www.linkedin.com/in/talal-alam-4b5808236/"}>
             <LinkedInIcon
-              style={{ color: "#FFF", width: "80%", height: "80%" }}
+              style={{
+                color: colors.secondary[400],
+                width: "80%",
+                height: "80%",
+              }}
             />
           </LinkBox>
         </Grid>
         <Grid xs={6} md={4}>
           <LinkBox link={"mailto:youremail@example.com?subject=Subject line"}>
-            <MailIcon style={{ color: "#FFF", width: "80%", height: "80%" }} />
+            <MailIcon
+              style={{
+                color: colors.secondary[400],
+                width: "80%",
+                height: "80%",
+              }}
+            />
             <Typography variant="h6">alamtalal004@gmail.com</Typography>
           </LinkBox>
         </Grid>
+        {/**Age */}
         <Grid xs={6} md={4}>
           <AppBox>
             <Typography padding={"5px"} variant="h5">
@@ -122,9 +142,10 @@ export default function HomePage() {
           </AppBox>
         </Grid>
       </Grid>
+      {/**AI Box */}
       {showAI === true ? (
         <Grid xs={12}>
-          <AiChatBox style={"HOLA"} />
+          <AiChatBox hideChatBox={hideChatBox} />
         </Grid>
       ) : null}
     </>
