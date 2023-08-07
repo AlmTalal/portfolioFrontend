@@ -34,6 +34,7 @@ export default function MsgTextBox({ handleSubmit }) {
         inputRef={inputFieldRef}
         onKeyDown={handleEnter}
         sx={{ "& .MuiInputBase-input": { color: colors.secondary[400] } }}
+        onClick={(event) => event.preventDefault()}
       />
       <Fab
         sx={{ color: "black", height: "40px", width: "40px" }}
