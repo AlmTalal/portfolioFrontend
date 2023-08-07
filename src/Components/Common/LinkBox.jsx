@@ -1,13 +1,11 @@
 import { Box } from "@mui/material";
-import React, { useContext } from "react";
-import { ColorModeContext, tokens } from "../../theme";
+import React from "react";
+import { tokens } from "../../theme";
 import { useTheme } from "@emotion/react";
-useContext;
 
 export default function LinkBox({ link, children }) {
   const theme = useTheme();
   const colors = tokens(theme.pallete.mode);
-  const colorMode = useContext(ColorModeContext);
 
   const handleClick = () => {
     window.open(`${link}`, "_blank");
