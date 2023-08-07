@@ -10,9 +10,10 @@ export default function ChatHeader() {
       />
       <Typography
         marginLeft={"8px"}
-        variant="h6"
+        variant="h4"
         fontWeight={"bold"}
         fontFamily={"sans-serif"}
+        color={"black"}
       >
         Mr. Bolt
       </Typography>
