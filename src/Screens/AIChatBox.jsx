@@ -35,6 +35,7 @@ export default function AiChatBox() {
       borderRadius={"10px"}
       padding={"20px"}
       backgroundColor={"#fcdcde"}
+      marginTop={"30px"}
       sx={{
         position: "absolute",
         top: "50%",
