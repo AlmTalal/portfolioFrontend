@@ -116,7 +116,7 @@ export default function HomePage() {
           </LinkBox>
         </Grid>
         <Grid xs={6} md={4}>
-          <LinkBox link={"mailto:youremail@example.com?subject=Subject line"}>
+          <LinkBox link={"mailto:alamtalal004@gmail.com?subject=Subject line"}>
             <MailIcon
               style={{
                 color: colors.secondary[400],
