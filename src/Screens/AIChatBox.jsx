@@ -24,40 +24,31 @@ export default function AiChatBox() {
 
   socket.on("response", (message) => {
     const newMessage = message;
-    if (newMessage.status === 200) {
-      setMessages([{ text: newMessage, human: false }, ...messages]);
-    } else {
-      setMessages([
-        { text: "Sorry, currently I'm offline", human: false },
-        ...messages,
-      ]);
-    }
+    setMessages([{ text: newMessage, human: false }, ...messages]);
   });
 
   return (
     <Box
-      width={"100vw"}
-      height={"100vh"}
-      display={"flex"}
+      width={"80%"}
+      height={"90vh"}
       alignItems={"center"}
-      justifyContent={"center"}
+      borderRadius={"10px"}
+      padding={"20px"}
+      backgroundColor={"#fcdcde"}
+      sx={{
+        position: "absolute",
+        top: "50%",
+        left: "50%",
+        transform: "translate(-50%, -50%)",
+      }}
     >
-      <Box
-        width={"70%"}
-        height={"70vh"}
-        alignItems={"center"}
-        borderRadius={"10px"}
-        padding={"20px"}
-        backgroundColor={"#fcdcde"}
-      >
-        <Stack spacing={1} height={"100%"}>
-          <ChatHeader />
-          <Divider />
-          <Chatbox messages={messages} />
-          <Divider />
-          <MsgTextBox handleSubmit={handleSubmit} />
-        </Stack>
-      </Box>
+      <Stack spacing={1} height={"100%"}>
+        <ChatHeader />
+        <Divider />
+        <Chatbox messages={messages} />
+        <Divider />
+        <MsgTextBox handleSubmit={handleSubmit} />
+      </Stack>
     </Box>
   );
 }
