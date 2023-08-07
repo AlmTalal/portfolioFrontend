@@ -13,7 +13,7 @@ export default function LinkBox({ link, children }) {
 
   return (
     <Box
-      backgroundColor={colors.red[400]}
+      backgroundColor={colors.primary[400]}
       height={"200px"}
       margin={"3px"}
       textAlign={"center"}

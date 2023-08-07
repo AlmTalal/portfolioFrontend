@@ -11,7 +11,7 @@ function App() {
           <CssBaseline />
           <main
             style={{
-              backgroundColor: colors.primary[500],
+              backgroundColor: "black",
               height: "100%",
               margin: "0px",
             }}

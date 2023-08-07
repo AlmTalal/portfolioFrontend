@@ -1,9 +1,13 @@
 import { Fab, Stack, TextField } from "@mui/material";
 import React, { useRef } from "react";
 import SendRoundedIcon from "@mui/icons-material/SendRounded";
+import { useTheme } from "@emotion/react";
+import { tokens } from "../../theme";
 
 export default function MsgTextBox({ handleSubmit }) {
   const inputFieldRef = useRef();
+  const theme = useTheme();
+  const colors = tokens(theme.pallete.mode);
 
   const handleClick = async () => {
     if (inputFieldRef.current.value !== "") {
@@ -27,11 +31,11 @@ export default function MsgTextBox({ handleSubmit }) {
         multiline
         maxRows={4}
         placeholder="Ask Bolt anything you want"
-        autoFocus
         inputRef={inputFieldRef}
         onKeyDown={handleEnter}
+        sx={{ "& .MuiInputBase-input": { color: colors.secondary[400] } }}
       />
-      <Fab color="primary" aria-label="send" onClick={handleClick}>
+      <Fab sx={{ color: "black" }} aria-label="send" onClick={handleClick}>
         <SendRoundedIcon />
       </Fab>
     </Stack>

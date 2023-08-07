@@ -12,7 +12,7 @@ export default function PersonalSummary() {
       height={"400px"}
       margin={"3px"}
       borderRadius={"10px"}
-      backgroundColor={colors.red[400]}
+      backgroundColor={colors.primary[400]}
       padding={1}
       overflow={"auto"}
       sx={{ "&::-webkit-scrollbar": { display: "none" } }}

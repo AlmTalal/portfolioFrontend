@@ -1,22 +1,27 @@
+import { useTheme } from "@emotion/react";
 import { Box, Typography } from "@mui/material";
 import React from "react";
+import { tokens } from "../../theme";
 
 export default function Message({ text, human }) {
+  const theme = useTheme();
+  const colors = tokens(theme.pallete.mode);
+
   const messageStyle = human
     ? {
-        backgroundColor: "red",
+        backgroundColor: colors.secondary[400],
         borderRadius: "0px 20px",
         alignSelf: "flex-end",
-        borderColor: "red",
+        borderColor: colors.secondary[400],
         borderWidth: "10px",
-        color: "white",
+        color: colors.primary[400],
       }
     : {
         borderRadius: "20px 0px",
-        color: "black",
+        color: colors.secondary[400],
         borderStyle: "solid",
         borderWidth: "5px",
-        borderColor: "red",
+        borderColor: colors.secondary[400],
       };
 
   return (
@@ -28,7 +33,9 @@ export default function Message({ text, human }) {
       padding={"12px"}
       height="fit-content"
     >
-      <Typography variant="subtitle1">{text}</Typography>
+      <Typography variant="subtitle1" fontWeight={"bold"}>
+        {text}
+      </Typography>
     </Box>
   );
 }

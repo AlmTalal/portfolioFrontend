@@ -4,8 +4,12 @@ import MsgTextBox from "../Components/Common/ChatTextBox";
 import Chatbox from "../Components/Chatbox";
 import ChatHeader from "../Components/ChatHeader";
 import { ChatService, socket } from "../Services/apiSocket";
+import { useTheme } from "@emotion/react";
+import { tokens } from "../theme";
 
-export default function AiChatBox() {
+export default function AiChatBox({ hideChatBox }) {
+  const theme = useTheme();
+  const colors = tokens(theme.pallete.mode);
   const [messages, setMessages] = useState([]);
 
   useEffect(() => {}, [messages]);
@@ -34,7 +38,7 @@ export default function AiChatBox() {
       alignItems={"center"}
       borderRadius={"10px"}
       padding={"20px"}
-      backgroundColor={"#fcdcde"}
+      backgroundColor={colors.primary[400]}
       marginTop={"30px"}
       sx={{
         position: "absolute",
@@ -44,7 +48,7 @@ export default function AiChatBox() {
       }}
     >
       <Stack spacing={1} height={"100%"}>
-        <ChatHeader />
+        <ChatHeader hideChatBox={hideChatBox} />
         <Divider />
         <Chatbox messages={messages} />
         <Divider />
