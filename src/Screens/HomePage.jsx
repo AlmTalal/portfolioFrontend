@@ -11,7 +11,7 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkBox from "../Components/Common/LinkBox";
 import PersonalSummary from "../Components/PersonalSummary";
 import AppBox from "../Components/Common/AppBox";
-import AiChatBox from "./aiChatBox";
+import AiChatBox from "./AIChatBox";
 
 export default function HomePage() {
   const theme = useTheme();
