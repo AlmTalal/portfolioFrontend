@@ -25,7 +25,7 @@ export default function MsgTextBox({ handleSubmit }) {
   };
 
   return (
-    <Stack direction={"row"} spacing={1}>
+    <Stack direction={"row"} spacing={1} alignItems={"center"}>
       <TextField
         fullWidth
         multiline
@@ -35,7 +35,11 @@ export default function MsgTextBox({ handleSubmit }) {
         onKeyDown={handleEnter}
         sx={{ "& .MuiInputBase-input": { color: colors.secondary[400] } }}
       />
-      <Fab sx={{ color: "black" }} aria-label="send" onClick={handleClick}>
+      <Fab
+        sx={{ color: "black", height: "40px", width: "40px" }}
+        aria-label="send"
+        onClick={handleClick}
+      >
         <SendRoundedIcon />
       </Fab>
     </Stack>
