@@ -1,14 +1,25 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
-
+import HomePage from "./Screens/HomePage";
+import { ColorModeContext, tokens, useMode } from "./theme";
+import { ThemeProvider, CssBaseline } from "@mui/material";
 function App() {
-  const [count, setCount] = useState(0);
-
+  const [theme, colorMode] = useMode();
+  const colors = tokens(theme.pallete.mode);
   return (
     <>
-      <h1>Hello World</h1>
+      <ColorModeContext.Provider value={colorMode}>
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
+          <main
+            style={{
+              backgroundColor: colors.primary[500],
+              height: "100%",
+              margin: "0px",
+            }}
+          >
+            <HomePage />
+          </main>
+        </ThemeProvider>
+      </ColorModeContext.Provider>
     </>
   );
 }
