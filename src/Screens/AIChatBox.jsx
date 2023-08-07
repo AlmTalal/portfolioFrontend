@@ -6,8 +6,9 @@ import ChatHeader from "../Components/ChatHeader";
 import { ChatService, socket } from "../Services/apiSocket";
 import { useTheme } from "@emotion/react";
 import { tokens } from "../theme";
+import { Link, useNavigate } from "react-router-dom";
 
-export default function AiChatBox({ hideChatBox }) {
+export default function AiChatBox() {
   const theme = useTheme();
   const colors = tokens(theme.pallete.mode);
   const [messages, setMessages] = useState([]);
@@ -33,27 +34,30 @@ export default function AiChatBox({ hideChatBox }) {
 
   return (
     <Box
-      width={"80%"}
-      height={"90vh"}
+      display={"flex"}
+      flexDirection={"column"}
       alignItems={"center"}
-      borderRadius={"10px"}
-      padding={"20px"}
-      backgroundColor={colors.primary[400]}
-      marginTop={"30px"}
-      sx={{
-        position: "absolute",
-        top: "50%",
-        left: "50%",
-        transform: "translate(-50%, -50%)",
-      }}
+      justifyContent={"center"}
+      backgroundColor={colors.secondary[400]}
+      height={"100vh"}
     >
-      <Stack spacing={1} height={"100%"}>
-        <ChatHeader hideChatBox={hideChatBox} />
-        <Divider />
-        <Chatbox messages={messages} />
-        <Divider />
-        <MsgTextBox handleSubmit={handleSubmit} />
-      </Stack>
+      <Box
+        width={"90%"}
+        height={"90vh"}
+        alignItems={"center"}
+        borderRadius={"10px"}
+        padding={"20px"}
+        backgroundColor={colors.primary[400]}
+        marginTop={"20px"}
+      >
+        <Stack spacing={1} height={"100%"}>
+          <ChatHeader />
+          <Divider />
+          <Chatbox messages={messages} />
+          <Divider />
+          <MsgTextBox handleSubmit={handleSubmit} />
+        </Stack>
+      </Box>
     </Box>
   );
 }
