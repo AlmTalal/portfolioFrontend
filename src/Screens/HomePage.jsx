@@ -11,21 +11,17 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkBox from "../Components/Common/LinkBox";
 import PersonalSummary from "../Components/PersonalSummary";
 import AppBox from "../Components/Common/AppBox";
-import AiChatBox from "./AIChatBox";
+import { useNavigate } from "react-router-dom";
 
 export default function HomePage() {
   const theme = useTheme();
   const colors = tokens(theme.pallete.mode);
   const colorMode = useContext(ColorModeContext);
   //The AI Button logic
-  const [showAI, setShowAi] = useState(false);
+  const navigate = useNavigate();
 
-  const handleAiClick = () => {
-    setShowAi(true);
-  };
-
-  const hideChatBox = () => {
-    setShowAi(false);
+  const handleNavigate = (link) => {
+    navigate(link);
   };
 
   return (
@@ -35,11 +31,8 @@ export default function HomePage() {
         sx={{
           paddingX: { xs: "10px", md: "20px" },
           paddingY: { xs: "30px", md: "40px" },
-          filter: showAI === true ? "blur(8px)" : null,
         }}
         padding={2}
-        position={"relative"}
-        onClick={() => (showAI === true ? setShowAi(false) : null)}
       >
         {/**
          * My personal Summary
@@ -80,7 +73,7 @@ export default function HomePage() {
         <Grid xs={6} md={4}>
           <AppBox
             style={{ cursor: "pointer" }}
-            handleClick={() => handleAiClick()}
+            handleClick={() => handleNavigate("/bolt-ai")}
           >
             <Typography padding={"5px"} variant="h3" fontWeight={"bold"}>
               Talk with Mr Bolt
@@ -142,12 +135,6 @@ export default function HomePage() {
           </AppBox>
         </Grid>
       </Grid>
-      {/**AI Box */}
-      {showAI === true ? (
-        <Grid xs={12}>
-          <AiChatBox hideChatBox={hideChatBox} />
-        </Grid>
-      ) : null}
     </>
   );
 }
