@@ -7,7 +7,7 @@ class ChatServices {
   }
 
   sendMessage(message, messages) {
-    socket.emit("sendMessage", message);
+    socket.emit("sendMessage", { message, pastMessages: messages });
   }
 }
 
