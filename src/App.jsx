@@ -1,6 +1,6 @@
 import AiChatBox from "./Screens/AIChatBox";
 import HomePage from "./Screens/HomePage";
-import UptimeCheck from "./Screens/uptimeCheck";
+import UptimeCheck from "./Screens/UptimeCheck";
 import { ColorModeContext, tokens, useMode } from "./theme";
 import { ThemeProvider, CssBaseline } from "@mui/material";
 import { Route, Routes } from "react-router-dom";
