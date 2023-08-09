@@ -5,7 +5,7 @@ import { socket } from "../Services/apiSocket";
 export default function UptimeCheck() {
   const [messages, setMessages] = useState(["Hola"]);
   socket.on("webStatusIs", (message) => {
-    [...message, message];
+    setMessages([...message, message]);
   });
   return (
     <Box width={"100vw"} height={"100vh"}>
