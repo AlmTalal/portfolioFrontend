@@ -134,11 +134,6 @@ export default function HomePage() {
             </Typography>
           </AppBox>
         </Grid>
-        <Grid xs={6} md={4}>
-          <AppBox handleClick={() => handleNavigate("/uptime-check")}>
-            UptimeCheck
-          </AppBox>
-        </Grid>
       </Grid>
     </>
   );
