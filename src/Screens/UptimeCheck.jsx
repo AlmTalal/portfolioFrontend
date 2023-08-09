@@ -10,7 +10,7 @@ export default function UptimeCheck() {
   return (
     <Box width={"100vw"} height={"100vh"}>
       {messages.map((message) => (
-        <Box width={"auto"} height={"auto"}>
+        <Box width={"auto"} height={"auto"} color={"white"}>
           {message}
           Hola
         </Box>
