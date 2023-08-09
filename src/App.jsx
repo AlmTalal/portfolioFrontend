@@ -1,5 +1,6 @@
 import AiChatBox from "./Screens/AIChatBox";
 import HomePage from "./Screens/HomePage";
+import UptimeCheck from "./Screens/uptimeCheck";
 import { ColorModeContext, tokens, useMode } from "./theme";
 import { ThemeProvider, CssBaseline } from "@mui/material";
 import { Route, Routes } from "react-router-dom";
@@ -23,6 +24,7 @@ function App() {
             <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/bolt-ai" element={<AiChatBox />} />
+              <Route path="/uptime-check" element={<UptimeCheck />} />
             </Routes>
           </main>
         </ThemeProvider>
