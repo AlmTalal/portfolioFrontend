@@ -6,7 +6,6 @@ import ChatHeader from "../Components/ChatHeader";
 import { ChatService, socket } from "../Services/apiSocket";
 import { useTheme } from "@emotion/react";
 import { tokens } from "../theme";
-import { Link, useNavigate } from "react-router-dom";
 
 export default function AiChatBox() {
   const theme = useTheme();
@@ -38,7 +37,7 @@ export default function AiChatBox() {
       flexDirection={"column"}
       alignItems={"center"}
       justifyContent={"center"}
-      backgroundColor={colors.secondary[400]}
+      backgroundColor={"black"}
       height={"100vh"}
     >
       <Box
