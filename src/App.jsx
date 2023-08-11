@@ -1,13 +1,11 @@
 import AiChatBox from "./Screens/AIChatBox";
 import HomePage from "./Screens/HomePage";
-import UptimeCheck from "./Screens/UptimeCheck";
-import { ColorModeContext, tokens, useMode } from "./theme";
+import { ColorModeContext, useMode } from "./theme";
 import { ThemeProvider, CssBaseline } from "@mui/material";
 import { Route, Routes } from "react-router-dom";
 
 function App() {
   const [theme, colorMode] = useMode();
-  const colors = tokens(theme.pallete.mode);
   return (
     <>
       <ColorModeContext.Provider value={colorMode}>
@@ -24,7 +22,6 @@ function App() {
             <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/bolt-ai" element={<AiChatBox />} />
-              <Route path="/uptime-check" element={<UptimeCheck />} />
             </Routes>
           </main>
         </ThemeProvider>
